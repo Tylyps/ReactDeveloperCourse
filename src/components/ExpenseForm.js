@@ -73,41 +73,41 @@ class ExpenseForm extends React.Component {
       error
     } = this.state;
     return (
-      <div>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            className="text-input"
-            autoFocus
-            value={description}
-            onChange={this.onDescriptionChange}
-          />
-          <input
-            type="text"
-            placeholder="Amount"
-            className="text-input"
-            value={amount}
-            onChange={this.onAmountChange}
-          />
-          <textarea
-            placeholder="Add a note for your expense (optional)"
-            className="textarea"
-            value={note}
-            onChange={this.onNoteChange}
-          />
-          <SingleDatePicker
-            date={createdAt}
-            onDateChange={this.onDateChange}
-            focused={calendarFocused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <button>Add Expense</button>
-        </form>
-      </div>
+      <form className="form" onSubmit={this.onSubmit}>
+        {error && <p className="form__error">{error}</p>}
+        <input
+          type="text"
+          placeholder="Description"
+          className="text-input"
+          autoFocus
+          value={description}
+          onChange={this.onDescriptionChange}
+        />
+        <input
+          type="text"
+          placeholder="Amount"
+          className="text-input"
+          value={amount}
+          onChange={this.onAmountChange}
+        />
+        <textarea
+          placeholder="Add a note for your expense (optional)"
+          className="textarea"
+          value={note}
+          onChange={this.onNoteChange}
+        />
+        <SingleDatePicker
+          date={createdAt}
+          onDateChange={this.onDateChange}
+          focused={calendarFocused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+        />
+        <div>
+          <button className="button">Save Expense</button>
+        </div>
+      </form>
     )
   }
 }
